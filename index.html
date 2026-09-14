@@ -1,25 +1,74 @@
 <!doctype html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>To-Do List</title>
 
-        <link rel="stylesheet" href="style.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <body>
-        <div class="container">
-            <h1>📝 To-Do List</h1>
+    <title>My To-Do List</title>
 
-            <div class="input-area">
-                <input type="text" id="taskInput" placeholder="Masukkan tugas..." />
-                <button onclick="addTask()">Tambah</button>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="icon">✓</div>
+
+            <div>
+                <h1>My To-Do List</h1>
+                <p>Atur tugasmu dan selesaikan satu per satu.</p>
             </div>
+        </header>
+
+
+        <!-- Input Tugas -->
+        <section class="input-area">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Apa yang ingin kamu kerjakan?"
+            />
+
+            <button onclick="addTask()">
+                + Tambah
+            </button>
+
+        </section>
+
+
+        <!-- Statistik -->
+        <section class="task-info">
+
+            <span>
+                📋 <strong id="taskCount">0</strong> Tugas
+            </span>
+
+            <span>
+                ✨ Tetap produktif!
+            </span>
+
+        </section>
+
+
+        <!-- Daftar Tugas -->
+        <section class="task-container">
+
+            <h2>Daftar Tugas</h2>
 
             <ul id="taskList"></ul>
-        </div>
 
-        <script src="script.js"></script>
-    </body>
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
 </html>
