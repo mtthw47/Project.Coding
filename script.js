@@ -1,38 +1,51 @@
 function addTask() {
-    // Mengambil isi input
-    let input = document.getElementById('taskInput');
-    let task = input.value;
+    // Mengambil input
+    let input = document.getElementById("taskInput");
+    let task = input.value.trim();
 
-    // Mengecek apakah input kosong
-    if (task === '') {
-        alert('Masukkan tugas terlebih dahulu!');
+    // Jika input kosong
+    if (task === "") {
+        alert("Masukkan tugas terlebih dahulu!");
         return;
     }
 
-    // Membuat elemen <li>
-    let li = document.createElement('li');
+    // Membuat elemen li
+    let li = document.createElement("li");
 
     // Membuat teks tugas
-    let text = document.createElement('span');
+    let text = document.createElement("span");
     text.textContent = task;
 
     // Membuat tombol hapus
-    let deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Hapus';
-    deleteButton.classList.add('delete');
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Hapus";
+    deleteButton.classList.add("delete");
 
-    // Ketika tombol hapus diklik
+    // Fungsi tombol hapus
     deleteButton.onclick = function () {
         li.remove();
+        updateTaskCount();
     };
 
-    // Memasukkan teks dan tombol ke dalam li
+    // Memasukkan teks dan tombol ke li
     li.appendChild(text);
     li.appendChild(deleteButton);
 
-    // Memasukkan li ke dalam ul
-    document.getElementById('taskList').appendChild(li);
+    // Memasukkan li ke dalam daftar
+    document.getElementById("taskList").appendChild(li);
 
     // Mengosongkan input
-    input.value = '';
+    input.value = "";
+
+    // Memperbarui jumlah tugas
+    updateTaskCount();
+}
+
+
+// Menghitung jumlah tugas
+function updateTaskCount() {
+    let taskList = document.getElementById("taskList");
+    let taskCount = taskList.children.length;
+
+    document.getElementById("taskCount").textContent = taskCount;
 }
